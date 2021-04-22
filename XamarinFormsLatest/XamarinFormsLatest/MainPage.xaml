@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XamarinFormsLatest.MainPage">
+
+    <!--<Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.896,0.67" StartPoint="0.902,0.625">
+                <GradientStop Color="Orange" Offset="1"/>
+                <GradientStop Color="GreenYellow" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+
+    </Grid>-->
+
+    <!--<Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.693,0.732" StartPoint="0.693,0.433">
+                <GradientStop Color="SkyBlue" Offset="0"/>
+                <GradientStop Color="White" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+
+    </Grid>-->
+
+    <Grid RowDefinitions=".5*,Auto,Auto,Auto,1*" ColumnDefinitions="*,.5*" Padding="3">
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.693,0.732" StartPoint="0.693,0.433">
+                <GradientStop Color="SkyBlue" Offset="0"/>
+                <GradientStop Color="White" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+
+        <!--<Path Grid.Row="0" Grid.Column="1"
+              Data="M500.22321,104.46429 C536.80261,74.678203 551.88251,70.3125 604.6875,70.3125 631.6453,70.3125 622.108,65.664136 630.80357,100.44643 637.83955,128.59033 633.37547,121.98168 610.71429,144.64286 633.14827,139.03436 661.69086,118.32276 687.05357,132.58929 706.4984,143.527 696.50251,174.2191 660.9375,200.89286 538.58286,292.65884 455.12737,229.01786 305.35714,229.01786 319.59817,200.53581 383.06297,174.82467 411.83036,154.6875 443.17695,132.74488 471.59224,115.70085 508.25893,104.46429"
+             Fill="orange"  Aspect="Fill"></Path>-->
+        
+        <Entry Grid.Row="1"  Grid.ColumnSpan="2" BackgroundColor="GreenYellow"></Entry>
+        <Entry Grid.Row="2"  Grid.ColumnSpan="2" BackgroundColor="Yellow"></Entry>
+        <Entry Grid.Row="3"  Grid.ColumnSpan="2" BackgroundColor="GreenYellow"></Entry>
+
+    </Grid>
+</ContentPage>
