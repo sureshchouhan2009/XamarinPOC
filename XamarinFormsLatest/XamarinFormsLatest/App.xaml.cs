@@ -21,7 +21,7 @@ namespace XamarinFormsLatest
 
             //    }
             //};
-            MainPage = new CardScanPage();
+            MainPage = new BasicMapp();
         }
 
         protected override void OnStart()
