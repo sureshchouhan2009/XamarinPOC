@@ -21,7 +21,7 @@ namespace XamarinFormsLatest
 
             //    }
             //};
-            MainPage = new BasicMapp();
+            MainPage = new ClusterPage();
         }
 
         protected override void OnStart()
