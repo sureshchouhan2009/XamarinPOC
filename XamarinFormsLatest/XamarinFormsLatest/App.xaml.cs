@@ -18,10 +18,11 @@ namespace XamarinFormsLatest
             //        new MapsPage(),
             //        new PinPage(),
             //        new MapsApi()
-
             //    }
             //};
-            MainPage = new ClusterPage();
+              MainPage = new CalendarPage();
+            //MainPage = new ClusterPage();
+            //MainPage = new HelloBitmapPage();
         }
 
         protected override void OnStart()

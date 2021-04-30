@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XamarinFormsLatest.pages.CalendarPopup">
+    <StackLayout Margin="10" x:Name="dateview" BackgroundColor="#FF931E" VerticalOptions="Center" HorizontalOptions="Center" Padding="0" Spacing="0">
+
+    </StackLayout>
+</pages:PopupPage>

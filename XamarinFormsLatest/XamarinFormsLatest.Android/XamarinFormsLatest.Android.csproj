@@ -57,6 +57,9 @@
     <PackageReference Include="Plugin.PayCards">
       <Version>1.1.1</Version>
     </PackageReference>
+    <PackageReference Include="Rg.Plugins.Popup">
+      <Version>2.0.0.11</Version>
+    </PackageReference>
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
     <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
     <PackageReference Include="Xamarin.Forms.Maps">
@@ -65,6 +68,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CustomRender\MapRenderer.cs" />
+    <Compile Include="CustomRender\TimePickerRendrer.cs" />
+    <Compile Include="Implementation\TextOverImage.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -110,6 +115,12 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\iconspin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\Next.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\Previous.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

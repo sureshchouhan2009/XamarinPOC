@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using XamarinFormsLatest.Helpers;
+using XamarinFormsLatest.Interfaces;
 
 namespace XamarinFormsLatest.pages
 {
@@ -29,6 +31,16 @@ namespace XamarinFormsLatest.pages
             {
 
             }
+        }
+
+        private void Button_Clicked_1(object sender, EventArgs e)
+        {
+            //var data=  TextToIconTextGenerator.GetIcon("ABC");
+
+         //var caller=   DependencyService.Get<ITextOverImage>().BitmapGeneration(); 
+         //   caller.BitmapGeneration();
+
+            //var result = data;
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Rg.Plugins.Popup.Services;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Xamarin.Essentials;
@@ -6,6 +7,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.GoogleMaps;
 using Xamarin.Forms.GoogleMaps.Clustering;
 using Xamarin.Forms.Xaml;
+using XamarinFormsLatest.Interfaces;
 
 namespace XamarinFormsLatest.pages
 {
@@ -14,7 +16,8 @@ namespace XamarinFormsLatest.pages
     {
         private const int ClusterItemsCount = 100;
         private const double Extent = 0.2;
-
+       
+        
         private readonly Position currentPosition= new Position(17.3850, 78.4867);
 
         //private Position fillCurrentPostion()
@@ -34,22 +37,58 @@ namespace XamarinFormsLatest.pages
         public ClusterPage()
         {
             InitializeComponent();
+           
+            //mainStack.Children.Add(stackLayout);
+
+
+
             Map.MoveToRegion(MapSpan.FromCenterAndRadius(currentPosition, Distance.FromMeters(100)));
 
             for (var i = 0; i <= ClusterItemsCount; i++)
             {
                 var lat = currentPosition.Latitude + Extent * GetRandomNumber(-1.0, 1.0);
                 var lng = currentPosition.Longitude + Extent * GetRandomNumber(-1.0, 1.0);
+                //  var iconimg = DependencyService.Get<ITextOverImage>().BitmapGeneration();
+                ContentView contentView = new ContentView();
+                contentView.BackgroundColor = Color.Transparent;
+                Image iconImage1 = new Image
+                {
+
+                    Source = "iconspin.png",
+                    HeightRequest = 40,
+                    WidthRequest = 20,
+                    HorizontalOptions =LayoutOptions.Center,
+                    VerticalOptions =LayoutOptions.Center,
+                };
+                Label iconLabel = new Label
+                {
+                    Text = "Day",
+                    BackgroundColor=Color.Yellow,
+                    FontSize = 12,
+                    TextColor = Color.Black,
+                };
+
+
+                contentView.HeightRequest = 50;
+                contentView.WidthRequest = 25;
+                StackLayout stackLayout = new StackLayout();
+                stackLayout.Orientation = StackOrientation.Vertical;
+                stackLayout.Padding = 0;
+                stackLayout.Children.Add(iconLabel);
+                stackLayout.Children.Add(iconImage1);
+                contentView.Content = stackLayout;
 
                 Map.Pins.Add(new Pin()
                 {
                     Position = new Position(lat, lng),
                     Label = $"Item {i}",
                     //Icon = BitmapDescriptorFactory.FromBundle("image01.png")
+                    Icon = BitmapDescriptorFactory.FromView(contentView)
+                    
                     //Icon = BitmapDescriptorFactory.DefaultMarker(Color.GreenYellow),
-                    Icon = BitmapDescriptorFactory.FromBundle("iconspin.png")
-
-                });
+                    //Icon = BitmapDescriptorFactory.FromBundle("iconspin.png")
+                    //Icon = iconimg
+                }) ;
             }
 
             Map.PinClicked += MapOnPinClicked;
@@ -58,6 +97,22 @@ namespace XamarinFormsLatest.pages
             Map.InfoWindowLongClicked += MapOnInfoWindowLongClicked;
            
             Map.Cluster();
+            //Map.ClusterOptions.SetRenderUsingImage()
+          Button b=  new Button
+            {
+                Text = "CalendarPopUp",
+                BackgroundColor = Color.Yellow,
+                TextColor = Color.Green
+            };
+            b.Clicked += B_Clicked;
+            mainStack.Children.Add(b);
+        }
+
+        private async void B_Clicked(object sender, EventArgs e)
+        {
+            await PopupNavigation.Instance.PushAsync(new CalendarPopup(pagedate:DateTime.Now,false));
+
+            //await ((MasterDetailPage)Application.Current.MainPage).Detail.Navigation.(new CalendarPopup());
         }
 
         private async void MapOnClusterClicked(object sender, ClusterClickedEventArgs e)
@@ -83,6 +138,11 @@ namespace XamarinFormsLatest.pages
         private double GetRandomNumber(double minimum, double maximum)
         {
             return random.NextDouble() * (maximum - minimum) + minimum;
+        }
+
+        private async void Button_Clicked(object sender, EventArgs e)
+        {
+          await  Navigation.PushAsync(new BasicMapp());
         }
     }
 }

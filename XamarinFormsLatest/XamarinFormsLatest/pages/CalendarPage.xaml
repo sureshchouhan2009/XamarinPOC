@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ViewModel="clr-namespace:XamarinFormsLatest.ViewModel" xmlns:components="clr-namespace:XamarinFormsLatest.Components" x:Class="XamarinFormsLatest.pages.CalendarPage" >
+    <ContentPage.BindingContext>
+        <ViewModel:CalendarPageViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+    <Grid RowDefinitions="Auto, Auto"  ColumnDefinitions="*" Padding="10" BackgroundColor="LightGreen" >
+            <Frame Grid.Row="0"  >
+                    <components:CustomCalendarComponent dateselected="CustomCalendarComponent_dateselected" Grid.Row="1"  />
+            </Frame>
+            <Label Grid.Row="1" x:Name="date" VerticalOptions="End" HorizontalOptions="Center" FontAttributes="Bold" FontSize="30" />
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
