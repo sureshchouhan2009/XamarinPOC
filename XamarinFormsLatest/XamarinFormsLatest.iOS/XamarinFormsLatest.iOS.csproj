@@ -63,6 +63,8 @@
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="CustomRenderer\BorderlessEntryRenderer.cs" />
+    <Compile Include="CustomRenderer\ShowHidePassEffect.cs" />
     <Compile Include="Implementation\TextOverImage.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />

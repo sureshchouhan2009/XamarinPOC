@@ -67,7 +67,9 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomRender\BorderlessEntryRenderer.cs" />
     <Compile Include="CustomRender\MapRenderer.cs" />
+    <Compile Include="CustomRender\ShowHidePassEffect.cs" />
     <Compile Include="CustomRender\TimePickerRendrer.cs" />
     <Compile Include="Implementation\TextOverImage.cs" />
     <Compile Include="MainActivity.cs" />

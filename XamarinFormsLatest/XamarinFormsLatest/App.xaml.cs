@@ -21,7 +21,7 @@ namespace XamarinFormsLatest
             //    }
             //};
               MainPage = new CalendarPage();
-            //MainPage = new ClusterPage();
+            MainPage = new ClusterPage();
             //MainPage = new HelloBitmapPage();
         }
 

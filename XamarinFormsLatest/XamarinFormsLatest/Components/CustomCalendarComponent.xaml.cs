@@ -14,10 +14,35 @@ namespace XamarinFormsLatest.Components
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CustomCalendarComponent : ContentView
     {
+
+
+        /// <summary>
+        ///     Bindable property for MinimumDate
+        /// </summary>
+        public static readonly BindableProperty InitialDateProperty =
+            BindableProperty.Create(nameof(InitialDate), typeof(DateTime), typeof(CustomCalendarComponent), DateTime.Now,
+                 propertyChanged:
+                    (bindable, oldValue, newValue) =>
+                    {
+                        ((CustomCalendarComponent)bindable).SetSelectedDate((DateTime)newValue);
+                    });
+
+        private void SetSelectedDate(DateTime newValue)
+        {
+            InitialDate = (DateTime)newValue;
+        }
+
+       
+        public DateTime InitialDate
+        {
+            get { return (DateTime)GetValue(InitialDateProperty); }
+            set { SetValue(InitialDateProperty, value); }
+        }
+
         public CustomCalendarComponent()
         {
             InitializeComponent();
-            DateTime pagedate = DateTime.Now;
+            DateTime pagedate = InitialDate;
             bool nextDisable = true;
             bool prevDisable = true;
             dt = pagedate;
@@ -31,6 +56,11 @@ namespace XamarinFormsLatest.Components
             Init();
 
         }
+
+     
+
+      
+
         public event EventHandler<DateSelectedEvent> dateselected;
         //static CultureInfo culture = new CultureInfo("nl-NL");
         static CultureInfo culture = new CultureInfo(CultureInfo.CurrentCulture.Name);
@@ -843,8 +873,10 @@ namespace XamarinFormsLatest.Components
                             }
                         }
                     }
-                     //dateselected(null, new DateSelectedEvent(new DateTime(currentyear, currentmonth, currentdate)));
-                     dateselected(null, new DateSelectedEvent(new DateTime(currentyear, currentmonth, currentdate)));
+                    InitialDate = new DateTime(currentyear, currentmonth, currentdate);
+                    //Text = SelectedDateTime.ToString();
+                    //dateselected(null, new DateSelectedEvent(new DateTime(currentyear, currentmonth, currentdate)));
+                    dateselected(null, new DateSelectedEvent(new DateTime(currentyear, currentmonth, currentdate)));
                 }
 
                 if (horseplanning && !start_date && !end_date)

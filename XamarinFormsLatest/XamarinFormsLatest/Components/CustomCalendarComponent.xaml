@@ -4,7 +4,6 @@
              x:Class="XamarinFormsLatest.Components.CustomCalendarComponent">
   <ContentView.Content>
         <StackLayout x:Name="dateview" >
-
         </StackLayout>
     </ContentView.Content>
 </ContentView>

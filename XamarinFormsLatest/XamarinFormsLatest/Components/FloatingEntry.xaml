@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:Components="clr-namespace:XamarinFormsLatest.CustomControls" x:Class="XamarinFormsLatest.Components.FloatingEntry">
+  <ContentView.Content>
+        <Grid x:Name="ContainerGrid" Padding="0" Margin="0" ColumnDefinitions="*">
+            <Frame x:Name="OutFrame" Padding="0" VerticalOptions="Fill" HorizontalOptions="Fill" HasShadow="False" />
+            <Frame x:Name="InnFrame" Padding="0" VerticalOptions="Fill" HorizontalOptions="Fill" HasShadow="False" />
+            <Components:BorderlessEntry x:Name="EntryField" Margin="10" Text="{Binding Text, Mode=TwoWay}" />
+            <Label x:Name="lblPlaceholder" VerticalOptions="Start" Padding="10,0,10,0" BackgroundColor="White" HorizontalOptions="Start" IsVisible="False" Margin="20,-10,0,0" LineBreakMode="TailTruncation" />
+        </Grid>
+    </ContentView.Content>
+</ContentView>

@@ -9,27 +9,35 @@ namespace XamarinFormsLatest.ViewModel
     public class CalendarPageViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
-        protected virtual void NotifyPropertyChanged([CallerMemberName] string propertyName = "")
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
+       
         private DateTime _selectedDate;
         public DateTime SelectedDate 
         {
             get { return _selectedDate; }
             set 
             {
-                if (_selectedDate != value)
-                {
-                    _selectedDate = value;
-                    NotifyPropertyChanged();
-                }
+                _selectedDate = value;
+                var args = new PropertyChangedEventArgs(nameof(_selectedDate));
+                PropertyChanged?.Invoke(this, args);
+            }
+        }
+         private string textfromVM ="Default Text";
+        public string TextfromVM
+        {
+            get { return textfromVM; }
+            set 
+            {
+                textfromVM = value;
+                var args = new PropertyChangedEventArgs(nameof(_selectedDate));
+                PropertyChanged.Invoke(this, args);
             }
         }
 
         public CalendarPageViewModel()
         {
-                
+            SelectedDate = DateTime.Now.AddDays(5);
+
+
         }
     }
 }

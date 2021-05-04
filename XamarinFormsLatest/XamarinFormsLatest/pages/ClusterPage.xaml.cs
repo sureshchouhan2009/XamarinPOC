@@ -20,24 +20,14 @@ namespace XamarinFormsLatest.pages
         
         private readonly Position currentPosition= new Position(17.3850, 78.4867);
 
-        //private Position fillCurrentPostion()
-        //{
-        //    Position position = new Position();
-        //    var location = Task.Run(async()=> await Geolocation.GetLastKnownLocationAsync()).Result;
-        //    if (location != null)
-        //    {
-        //        return position= new Position(location.Latitude, location.Longitude);
-               
-        //    }
-        //    return position;
-        //}
+        
 
         private readonly Random random = new Random();
 
         public ClusterPage()
         {
             InitializeComponent();
-           
+
             //mainStack.Children.Add(stackLayout);
 
 
@@ -57,13 +47,13 @@ namespace XamarinFormsLatest.pages
                     Source = "iconspin.png",
                     HeightRequest = 40,
                     WidthRequest = 20,
-                    HorizontalOptions =LayoutOptions.Center,
-                    VerticalOptions =LayoutOptions.Center,
+                    HorizontalOptions = LayoutOptions.Center,
+                    VerticalOptions = LayoutOptions.Center,
                 };
                 Label iconLabel = new Label
                 {
                     Text = "Day",
-                    BackgroundColor=Color.Yellow,
+                    BackgroundColor = Color.Yellow,
                     FontSize = 12,
                     TextColor = Color.Black,
                 };
@@ -83,29 +73,21 @@ namespace XamarinFormsLatest.pages
                     Position = new Position(lat, lng),
                     Label = $"Item {i}",
                     //Icon = BitmapDescriptorFactory.FromBundle("image01.png")
-                    Icon = BitmapDescriptorFactory.FromView(contentView)
-                    
+                    //Icon = BitmapDescriptorFactory.FromView(contentView)
                     //Icon = BitmapDescriptorFactory.DefaultMarker(Color.GreenYellow),
-                    //Icon = BitmapDescriptorFactory.FromBundle("iconspin.png")
-                    //Icon = iconimg
-                }) ;
+                    Icon = BitmapDescriptorFactory.FromBundle("iconspin.png")
+                    
+                });
             }
 
             Map.PinClicked += MapOnPinClicked;
             Map.ClusterClicked += MapOnClusterClicked;
             Map.InfoWindowClicked += MapOnInfoWindowClicked;
             Map.InfoWindowLongClicked += MapOnInfoWindowLongClicked;
-           
+
             Map.Cluster();
-            //Map.ClusterOptions.SetRenderUsingImage()
-          Button b=  new Button
-            {
-                Text = "CalendarPopUp",
-                BackgroundColor = Color.Yellow,
-                TextColor = Color.Green
-            };
-            b.Clicked += B_Clicked;
-            mainStack.Children.Add(b);
+
+            
         }
 
         private async void B_Clicked(object sender, EventArgs e)

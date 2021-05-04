@@ -8,15 +8,20 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using XamarinFormsLatest.CustomControls;
+using XamarinFormsLatest.ViewModel;
 
 namespace XamarinFormsLatest.pages
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CalendarPage : ContentPage
     {
+        CalendarPageViewModel VM; 
+
         public CalendarPage()
         {
             InitializeComponent();
+            VM = new CalendarPageViewModel();
+            BindingContext = VM;
         }
 
         private void CustomCalendarComponent_dateselected(object sender, Components.DateSelectedEvent e)
